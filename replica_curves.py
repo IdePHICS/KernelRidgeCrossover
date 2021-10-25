@@ -18,6 +18,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.kernel_ridge import KernelRidge
 import sys
 
+
+#The following packages can be downloaded from https://github.com/IdePHICS/GCMProject/tree/main/state_evolution and put in the folder g3m_utils/
 sys.path.insert(1, 'g3m_utils/')
 from state_evolution.data_models.custom import CustomSpectra
 from state_evolution.experiments.learning_curve import CustomExperiment
