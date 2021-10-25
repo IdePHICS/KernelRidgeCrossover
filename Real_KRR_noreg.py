@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# KRR with lambda optimized using the scikit learn package
+# KRR with lambda zero
 
 # In[3]:
 
@@ -32,6 +32,9 @@ gamma=args.r #RBF inverse variance
 sigma=args.p
 kernel=args.k
 
+
+#We download the dataset and convert them in (flattened) numpy arrays, substract the mean column-wise and divide by the standard deviation. The labels y are generated from the 
+#task at hand. For example, for even odd MNIST, label y=+1 are assigned to even numbers and y=-1 to odd numbers. These arrays should be stored in a folder datasets/
 dataset=args.d
 X=np.load("datasets/{}_X.npy".format(dataset))
 y=np.load("datasets/{}_y.npy".format(dataset))
