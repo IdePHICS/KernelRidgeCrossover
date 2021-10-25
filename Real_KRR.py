@@ -17,11 +17,11 @@ from sklearn.kernel_ridge import KernelRidge
 import argparse
 import multiprocessing as mp
 parser = argparse.ArgumentParser(description='Job launcher')
-parser.add_argument("-p", type=float)
-parser.add_argument("-r", type=float)
-parser.add_argument("-k", type=str)
-parser.add_argument("-v", type=int)
-parser.add_argument("-d", type=str)
+parser.add_argument("-p", type=float) #noise variance
+parser.add_argument("-r", type=float) #gamma kernel parameter
+parser.add_argument("-k", type=str) #type of kernel
+parser.add_argument("-v", type=int) #sample range
+parser.add_argument("-d", type=str) #dataset
 
 
 args = parser.parse_args()
@@ -33,6 +33,10 @@ sigma=args.p
 kernel=args.k
 
 dataset=args.d
+
+#We download the dataset and convert them in (flattened) numpy arrays, substract the mean column-wise and divide by the standard deviation. The labels y are generated from the 
+#task at hand. For example, for even odd MNIST, label y=+1 are assigned to even numbers and y=-1 to odd numbers. These arrays should be stored in a folder datasets/
+
 X=np.load("datasets/{}_X.npy".format(dataset))
 y=np.load("datasets/{}_y.npy".format(dataset))
 
