@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# KRR with lambda optimized using the scikit learn package
-
-# In[3]:
+#KRR on real data, optimized regularization.
 
 
 import numpy as np
