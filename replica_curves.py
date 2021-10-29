@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Ridge regression on the G$^3$M model
-
-# In[65]:
+# Replica (solid) curves in Fig. 2, 3, 4
 
 
 import numpy as np
@@ -26,13 +21,7 @@ from state_evolution.experiments.learning_curve import CustomExperiment
 from sklearn.model_selection import GridSearchCV
 from sklearn import linear_model
 
-# %load_ext autoreload
-# %autoreload 2
 
-
-# ## Global Variables
-
-# In[66]:
 
 
 # Dimensions
@@ -46,20 +35,13 @@ gamma = k/p
 lamb = 0
 
 
-# ## Replicas
-
-# In[67]:
-
-
 replicas={"lamb":[],"samples":[],"test_error":[], "a":[],"b":[],"c":[],"lamb0":[],"sigma":[],"p":[]}
 
 
-# In[68]:
 
-
-b = 1.5
-a = 3
-c=1
+b = 1.5 #called \alpha in the paper
+a = 3  # r=(a-1)/2 in the paper
+c=1  #called \ell-1 in the paper
 lamb0=1#10**(-4)
 sigma=1e-3
 spec_Omega = np.array([p/(k+1)**b for k in range(p)])
@@ -69,15 +51,8 @@ Psi = spec_Omega
 teacher = np.sqrt(np.array([p/(k+1)**a for k in range(p)]) / spec_Omega)
 
 
-# In[69]:
-
-
 rho = np.mean(Psi * teacher**2)
 diagUtPhiPhitU = Phi**2 * teacher**2
-
-
-# In[70]:
-
 
 print('Loading data model')
 data_model = CustomSpectra(gamma = gamma,
@@ -95,9 +70,6 @@ experiment = CustomExperiment(task = 'ridge_regression',
                               max_steps = 1000)
 
 
-# In[71]:
-
-
 def error_lam(log_lam,alpha):
     lam=np.exp(-np.log(10)*log_lam)
     experiment = CustomExperiment(task = 'ridge_regression', 
@@ -112,8 +84,6 @@ def error_lam(log_lam,alpha):
     return error
     
 
-
-# In[72]:
 
 
 alphas = np.logspace(.8, 5, 15)
@@ -143,9 +113,6 @@ for alpha in alphas:
     replicas["c"].append(c)
     replicas["p"].append(p)
     replicas["sigma"].append(sigma)
-
-
-# In[73]:
 
 
 Df=pd.DataFrame(replicas)
