@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # 3-layer on GAN data
-
-# In[ ]:
+#Python code to generate Fig. 2, 3, 4, points. This uses a slightly different notation a,b for the coefficients alpha, r in the paper. alpha=b, r=(a-1)/2b
 
 from math import*
 import numpy as np
