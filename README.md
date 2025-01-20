@@ -2,7 +2,7 @@
 
 Code for the paper : <i>Generalization error rates in kernel regression: The crossover from the noiseless to noisy regime</i> (<a href="https://proceedings.neurips.cc/paper/2021/hash/543bec10c8325987595fcdc492a525f4-Abstract.html">link to paper</a>)
 
-<p align="center"><img src="figures/scaling_laws.jpg" alt="illus" width="600"/></center></p>
+<p align="center"><img src="figures/crossovers.jpg" alt="illus" width="600"/></center></p>
 
 ## Theoretical characterization 
 (Figs. 2, 3, solid lines)
